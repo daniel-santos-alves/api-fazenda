@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Fazenda API 👋</h1>
+<h1 align="center">API Fazenda 🐄</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
   <a href="localhost:3000/documentation" target="_blank">
@@ -9,13 +9,92 @@
   </a>
 </p>
 
-> uma aplicação para gerenciar o cadastro de produtores rurais
+> API para gerenciamento de fazendas, produtores e dados agrícolas. Desenvolvido com NestJS, Prisma ORM, PostgreSQL e Docker.
 
-## Install
+<h2>📦 Tecnologias</h2>
 
-```sh
-npm install
-```
+<ul>
+  <li>
+    <a href="https://nestjs.com/" target="_blank">
+      <p>NestJS</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.prisma.io/" target="_blank">
+      <p>Prisma ORM</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.postgresql.org/" target="_blank">
+      <p>PostgreSQL</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.docker.com/" target="_blank">
+      <p>Docker</p>
+    </a>
+  </li>
+  <li>
+      <p><a href="https://www.docker.com/" target="_blank" >Swagger</a> para documentação da API</p>
+  </li>
+</ul>
+<h2>🚀 Como rodar o projeto</h2>
+<h3>🔧 Pré-requisitos</h3>
+<ul>
+  <li>
+      <p><a href="" target="_blank">Node.js</a> (v20+)</p>
+  </li>
+  <li>
+    <a href="https://www.docker.com/" target="_blank">
+      <p>Docker</p>
+    </a>
+  </li>
+  <li>
+    <a href="https://docs.docker.com/compose/" target="_blank">
+      <p>Docker Compose</p>
+    </a>
+  </li>
+</ul>
+
+<h3>Rodando o projeto no ambiente local</h3>
+
+Execute o comando: 
+  ```sh
+    npm install
+  ```
+
+Na raiz do projeto, crie um arquivo ``.env`` para declarar as variáveis de ambiente a seguir:
+<h3>⚙️ Variáveis de Ambiente</h3>
+
+Substitua os ``usuario`` e ``senha`` pelos seus dados do PostgreSQL. ``nome_banco`` deve ser substituido pelo do banco que você irá criar
+  ```sh
+    DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_banco"
+  ```
+
+Para ambiente Windows
+  ```sh
+    PRISMA_BINARY_TARGETS=["native"]
+  ```
+
+Para ambiente Linux
+  ```sh
+    PRISMA_BINARY_TARGETS: '["native","linux-musl-openssl-3.0.x"]'
+  ```
+
+<h3>Criando o Banco de dados com o PostgreSQL</h3>
+
+No seu PostgreSQL execute o seguinte comando. O ``nome_banco`` deve ser o mesmo usado na variável de ambiente ``DATABASE_URL``
+  ```sh
+    CREATE DATABASE nome_banco;
+  ```
+
+<h3>Gerando o Prisma Client</h3>
+
+ Com base no arquivo ``schema.prisma``
+
+   ```sh
+    npx prisma generate
+   ```
 
 ## Usage
 
