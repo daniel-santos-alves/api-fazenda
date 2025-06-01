@@ -1,0 +1,55 @@
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "./generated/prisma"
+  binaryTargets   = env("PRISMA_BINARY_TARGETS")
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Culturas {
+  id_culturas      Int        @id @default(autoincrement()) 
+  cultura_plantada String     @db.VarChar
+  tb_safra         Safra[]
+
+  @@map("tb_culturas")
+}
+
+model Fazenda {
+  id_fazenda        Int          @id(map: "fazenda_pkey") @default(autoincrement())
+  id_produtor       Int
+  nome_fazenda      String       @db.VarChar
+  area_total        Decimal      @db.Decimal(10, 2)
+  area_agricultavel Decimal      @db.Decimal(10, 2)
+  area_vegetacao    Decimal      @db.Decimal(10, 2)
+  cidade            String       @db.VarChar
+  estado            String       @db.VarChar
+  tb_produtor       Produtor? @relation(fields: [id_produtor], references: [id_produtor], onDelete: NoAction, onUpdate: NoAction, map: "fk_produtor")
+  tb_safra          Safra[]
+
+  @@map("tb_fazenda")
+}
+
+model Produtor {
+  id_produtor   Int          @id @default(autoincrement())
+  nome_produtor String       @db.VarChar
+  cpf_produtor  String?      @db.VarChar
+  cnpj_produtor String?      @db.VarChar
+  tb_fazenda    Fazenda[]
+
+  @@map("tb_produtor")
+}
+
+model Safra {
+  id_safra    Int          @id @default(autoincrement())
+  id_fazenda  Int
+  id_culturas Int
+  ano         Int
+  tb_culturas Culturas? @relation(fields: [id_culturas], references: [id_culturas], onDelete: NoAction, onUpdate: NoAction, map: "fk_safra_culturas")
+  tb_fazenda  Fazenda?  @relation(fields: [id_fazenda], references: [id_fazenda], onDelete: NoAction, onUpdate: NoAction, map: "fk_safra_fazenda")
+
+  @@map("tb_safra")
+}
