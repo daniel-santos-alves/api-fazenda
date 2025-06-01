@@ -18,8 +18,8 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('API de Exemplo')
-    .setDescription('Documentação da API usando Swagger')
+    .setTitle('API Fazenda 🐄')
+    .setDescription('API para gerenciamento de fazendas, produtores e dados agrícolas. Desenvolvido com NestJS, Prisma ORM, PostgreSQL e Docker.')
     .setVersion('1.0')
     .addServer('http://localhost:3000', 'Local')
     .build();
