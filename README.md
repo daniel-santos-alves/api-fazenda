@@ -56,7 +56,7 @@
   </li>
 </ul>
 
-<h3>Rodando o projeto no ambiente local</h3>
+<h2>Rodando o projeto no ambiente local</h2>
 
 Execute o comando: 
   ```sh
@@ -66,7 +66,7 @@ Execute o comando:
 Na raiz do projeto, crie um arquivo ``.env`` para declarar as variáveis de ambiente a seguir:
 <h3>⚙️ Variáveis de Ambiente</h3>
 
-Substitua os ``usuario`` e ``senha`` pelos seus dados do PostgreSQL. ``nome_banco`` deve ser substituido pelo do banco que você irá criar
+Substitua os ``usuario`` e ``senha`` pelos seus dados do PostgreSQL. E crie um nome para o seu banco de dados no lugar de ``nome_banco`` 
   ```sh
     DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_banco"
   ```
@@ -80,14 +80,7 @@ Para ambiente Linux
   ```sh
     PRISMA_BINARY_TARGETS: '["native","linux-musl-openssl-3.0.x"]'
   ```
-
-<h3>Criando o Banco de dados com o PostgreSQL</h3>
-
-No seu PostgreSQL execute o seguinte comando. O ``nome_banco`` deve ser o mesmo usado na variável de ambiente ``DATABASE_URL``
-  ```sh
-    CREATE DATABASE nome_banco;
-  ```
-
+##
 <h3>Gerando o Prisma Client</h3>
 
  Com base no arquivo ``schema.prisma``
@@ -95,29 +88,79 @@ No seu PostgreSQL execute o seguinte comando. O ``nome_banco`` deve ser o mesmo 
    ```sh
     npx prisma generate
    ```
+##
+<h3>Aplicando as migrações já existentes</h3>
+No diretório ``prisma/migrations`` ao banco de dados
 
-## Usage
+  ```sh
+    npx prisma migrate deploy
+  ```
+##
+<h3>Iniciando o servidor local</h3>
 
-```sh
-npm run start
-```
+  ```sh
+    npm run start
+  ```
+Acesse a API:
 
-## Run tests
+  ```sh
+    http://localhost:3000
+  ```
+##
+<h3>📑 Documentação</h3>
+  
+  ```sh
+    http://localhost:3000/documentation
+  ```
+##
+<h3>Executando testes unitários</h3>
 
-```sh
-npm run test
-```
+  ```sh
+    npm run test
+  ```
+##
+<h3>Executando teste de integração</h3>
 
-## Author
+  ```sh
+    npm run test:e2e
+  ```
+
+
+<h2>Rodando o projeto com Docker Compose</h2>
+
+<h3>Cria um container Docker a partir do Docker composse</h3>
+
+  ```sh
+    docker compose up –build 
+  ```
+
+##
+<h3>Aplicando as migrações já existentes</h3>
+No diretório ``prisma/migrations`` ao banco de dados no Docker
+
+  ```sh
+    docker compose exec api npx prisma migrate deploy
+  ```
+##
+<h3>Acesse a API:</h3>
+
+  ```sh
+    http://localhost:3000
+  ```
+##
+<h3>📑 Documentação</h3>
+  
+  ```sh
+    http://localhost:3000/documentation
+  ```
+
+
+## Desenvolvedor
 
 👤 **Daniel S. Alves**
 
 * Github: [@daniel-santos-alves](https://github.com/daniel-santos-alves)
 * LinkedIn: [@daniel-santos-alves-475a88283](https://linkedin.com/in/daniel-santos-alves-475a88283)
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
