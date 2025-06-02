@@ -133,6 +133,9 @@ Acesse a API:
   ```sh
     docker compose up –build 
   ```
+##
+<h3>⚙️ Variáveis de Ambiente</h3>
+Todas as variáveis de ambiente foram definidas no arquivo Docker compose
 
 ##
 <h3>Aplicando as migrações já existentes</h3>
@@ -160,7 +163,7 @@ No diretório ``prisma/migrations`` ao banco de dados no Docker
 👤 **Daniel S. Alves**
 
 * Github: [@daniel-santos-alves](https://github.com/daniel-santos-alves)
-* LinkedIn: [@daniel-santos-alves-475a88283](https://linkedin.com/in/daniel-santos-alves-475a88283)
-
+* LinkedIn: (www.linkedin.com/in/daniel-dos-santos-alves-475a88283)
+* email: danielsantosalves@gmail.com
 ***
 
