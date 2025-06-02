@@ -11,6 +11,12 @@
 
 > API para gerenciamento de fazendas, produtores e dados agrícolas. Desenvolvido com NestJS, Prisma ORM, PostgreSQL e Docker.
 
+<h2 align="center">Diagrama de Entidade-Relacionamento (DER) da API Fazenda</h2>
+
+<p align="center">
+  <img src="assets/der.png" alt="DER" width="600">
+</p>
+
 <h2>📦 Tecnologias</h2>
 
 <ul>
